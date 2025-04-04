@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Agro Store</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2bc02b;
+            color: white;
+            padding: 15px 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Checkout Section */
+        #checkout-section {
+            background-color: #fff;
+            padding: 30px;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #checkout-cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item .item-name {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .cart-item .item-price {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Checkout Form */
+        #checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #checkout-form label {
+            font-size: 18px;
+            color: #555;
+        }
+
+        #checkout-form input,
+        #checkout-form textarea {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #checkout-form button {
+            padding: 12px 20px;
+            background-color: #2bc02b;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #checkout-form button:hover {
+            background-color: #218838;
+        }
+
+        /* Total Price */
+        #checkout-total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #2bc02b;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Agro Store - Checkout</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="offer.html">Offers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="checkout-section">
+        <h2>Order Summary</h2>
+        
+        <!-- Cart Items Display -->
+        <div id="checkout-cart-items"></div>
+
+        <!-- Customer Information Form -->
+        <h3>Customer Information</h3>
+        <form id="checkout-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Shipping Address</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Confirm Order</button>
+        </form>
+
+        <!-- Total Amount -->
+        <p id="checkout-total">Total: $0</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Agro Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simulating Cart Data using localStorage or sessionStorage
+        if (!localStorage.getItem('cart')) {
+            const cart = [
+                { name: "Pesticide A", price: 10.5 },
+                { name: "Tractor", price: 250.0 },
+                { name: "Fertilizer", price: 15.0 }
+            ];
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Function to render cart items on the checkout page
+        function renderCartItems() {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            const checkoutCartItemsDiv = document.getElementById('checkout-cart-items');
+            let total = 0;
+
+            // Clear previous cart content
+            checkoutCartItemsDiv.innerHTML = '';
+
+            // Loop through cart items and display them
+            cart.forEach(item => {
+                total += item.price;
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-price">$${item.price.toFixed(2)}</span>
+                `;
+                checkoutCartItemsDiv.appendChild(cartItemDiv);
+            });
+
+            // Update the total price
+            document.getElementById('checkout-total').innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Call the render function when the page loads
+        window.onload = renderCartItems;
+
+        // Handle checkout form submission (just for demonstration)
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Order confirmed! Thank you for your purchase.');
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 80%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .toggle {
+            margin-top: 15px;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .toggle:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="form-title">Login</h2>
+        
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p class="toggle" onclick="toggleForms()">Don't have an account? Register</p>
+        </form>
+
+        <form id="register-form" class="hidden">
+            <input type="text" id="register-name" placeholder="Full Name" required>
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button type="submit">Register</button>
+            <p class="toggle" onclick="toggleForms()">Already have an account? Login</p>
+        </form>
+    </div>
+
+    <script>
+        function toggleForms() {
+            let loginForm = document.getElementById("login-form");
+            let registerForm = document.getElementById("register-form");
+            let formTitle = document.getElementById("form-title");
+    
+            if (loginForm.classList.contains("hidden")) {
+                loginForm.classList.remove("hidden");
+                registerForm.classList.add("hidden");
+                formTitle.textContent = "Login";
+            } else {
+                loginForm.classList.add("hidden");
+                registerForm.classList.remove("hidden");
+                formTitle.textContent = "Register";
+            }
+        }
+    
+        // Redirect after login or registration
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            alert("Login successful!");
+            window.location.href = "home.html"; // Redirect to home page
+        });
+    
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            alert("Registration successful!");
+            window.location.href = "home.html"; // Redirect to home page
+        });
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Agro Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script-product.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Agro Store</h1>
+    <!-- Search Bar Section (common for home.html and product.html) -->
+<div class="search-bar">
+    <input type="text" id="search-bar" placeholder="Search products..." oninput="searchProducts()">
+    <button type="submit">Search</button>
+</div>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="offer.html">Offers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Product Categories Section -->
+    <section class="products-page">
+        <h2>Our Products</h2>
+
+        <!-- Fruits Section -->
+        <div class="category">
+            <h3>Fruits</h3>
+            <div class="products">
+                <div class="product">
+                    <img src="images/apple.jpg" alt="Apples">
+                    <h3>Fresh Apples</h3>
+                    <p>$5 per kg</p>
+                    <button class="add-to-cart" data-name="Fresh Apples" data-price="5" data-image="images/products/apple.jpg">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/mango.png" alt="Mango">
+                    <h3>Fresh Mango</h3>
+                    <p>$6 per kg</p>
+                    <button class="add-to-cart" data-name="Fresh Mango" data-price="6" data-image="images/products/mango.jpg">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vegetables Section -->
+        <div class="category">
+            <h3>Vegetables</h3>
+            <div class="products">
+                <div class="product">
+                    <img src="images/carrot.jpg" alt="Carrot">
+                    <h3>Fresh Carrot</h3>
+                    <p>$3 per kg</p>
+                    <button class="add-to-cart" data-name="Fresh Carrot" data-price="3" data-image="images/products/carrot.jpg">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/brinjal1.png" alt="Brinjal">
+                    <h3>Fresh Broccoli</h3>
+                    <p>$4 per kg</p>
+                    <button class="add-to-cart" data-name="Fresh Broccoli" data-price="4" data-image="images/products/broccoli.jpg">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pesticides Section -->
+        <div class="category">
+            <h3>Pesticides</h3>
+            <div class="products">
+                <div class="product">
+                    <img src="images/pesticide.png" alt="Pesticide">
+                    <h3>Eco-Friendly Pesticide</h3>
+                    <p>$12 per bottle</p>
+                    <button class="add-to-cart" data-name="Eco-Friendly Pesticide" data-price="12" data-image="images/products/pesticide1.jpg">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/pesticide-org.png" alt="Pesticide">
+                    <h3>Organic Pesticide</h3>
+                    <p>$15 per bottle</p>
+                    <button class="add-to-cart" data-name="Organic Pesticide" data-price="15" data-image="images/products/pesticide2.jpg">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+     
+
+        <!-- Tools Section -->
+        <div class="category">
+            <h3>Tools</h3>
+            <div class="products">
+                <div class="product">
+                    <img src="images/hoe.png" alt="Hoe">
+                    <h3>Gardening Hoe</h3>
+                    <p>$10 each</p>
+                    <button class="add-to-cart" data-name="Gardening Hoe" data-price="10" data-image="images/products/hoe.jpg">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/shovel.png" alt="Shovel">
+                    <h3>Shovel</h3>
+                    <p>$15 each</p>
+                    <button class="add-to-cart" data-name="Shovel" data-price="15" data-image="images/products/shovel.jpg">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Agro Store. All rights reserved.</p>
+    </footer>
+
+    <script src="script-product.js"></script>
+</body>
+</html>

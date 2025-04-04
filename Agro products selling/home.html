@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Products - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Agro Store</h1>
+      <!-- Search Bar Section (common for home.html and product.html) -->
+<div class="search-bar">
+    <input type="text" id="search-bar" placeholder="Search products..." oninput="searchProducts()">
+    <button type="submit">Search</button>
+</div>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="offer.html">Offers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Log in</a></li>
+                <li><a href="login.html">Register now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <div class="overlay">
+            <h1>Welcome to Agro Products</h1>
+            <p>Your one-stop shop for fresh vegetables, fruits, tools, and pesticides.</p>
+            <img src="images/farm.png" alt="Apples">
+        </div>
+    </section>
+    <!-- Banner Section -->
+    <section class="banner">
+        <h2>Fresh & Organic Agro Products</h2>
+        <p>Buy directly from farms at the best prices.</p>
+        <a href="product.html" class="btn">Shop Now</a>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="products">
+            <div class="product">
+                <img src="images/apple.jpg" alt="Apples">
+                <h3>Fresh Apples</h3>
+                <p>$5 per kg</p>
+                <button class="add-to-cart" data-name="Fresh Apples" data-price="5" data-image="images/products/apple.jpg">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/milk.jpg" alt="Milk">
+                <h3>Organic Milk</h3>
+                <p>$2 per liter</p>
+                <button class="add-to-cart" data-name="Organic Milk" data-price="2" data-image="images/products/milk.jpg">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/rice.jpg" alt="Rice">
+                <h3>Basmati Rice</h3>
+                <p>$10 per kg</p>
+                <button class="add-to-cart" data-name="Basmati Rice" data-price="10" data-image="images/products/rice.jpg">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Agro Store. All rights reserved.</p>
+    </footer>
+
+    <script src="script-home.js"></script>
+</body>
+</html>
+
